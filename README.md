@@ -99,13 +99,6 @@ Total              =  7 110 912 pesos
 | `W2` (contexto) | (27 777, 128) | 3 555 456 |
 | **Total** | | **7 110 912** (≈ 7.1 M) |
 
-Para verificarlo en el notebook:
-
-```python
-total = model.w1.size + model.w2.size
-print(f"V = {vocab_size} | W1 = {model.w1.shape} | W2 = {model.w2.shape}")
-print(f"Total de pesos: {total:,}")
-```
 
 ### Memoria
 
