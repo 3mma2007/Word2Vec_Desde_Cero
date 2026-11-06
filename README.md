@@ -46,7 +46,7 @@ palabra central ──► W1[centro] = h ──┬─► h · W2[contexto]    �
 
 - `W1` (V × N): matriz de **embeddings**. La fila `i` es el vector de la palabra `i` como palabra central. Es el resultado final del proyecto.
 - `W2` (V × N): matriz de **contexto**. La fila `j` es el vector de la palabra `j` cuando actúa como contexto o como negativa.
-- No hay bias ni función de activación en la capa oculta: la entrada es un one-hot, así que `one-hot @ W1` equivale a seleccionar una fila (`W1[centro]`).
+- No hay bias ni función de activación en la capa oculta.
 - El contexto **no entra a la red**: solo se usa para leer una fila de `W2` y calcular el error.
 
 ---
