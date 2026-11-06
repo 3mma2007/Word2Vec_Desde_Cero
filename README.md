@@ -100,15 +100,6 @@ Total              =  7 110 912 pesos
 | **Total** | | **7 110 912** (≈ 7.1 M) |
 
 
-### Memoria
-
-NumPy guarda los pesos en `float64` (8 bytes cada uno):
-
-```
-memoria = total_pesos × 8 bytes
-```
-
-Para este modelo: `7 110 912 × 8 = 56 887 296 bytes ≈ 54.3 MiB` (≈ 56.9 MB).
 
 ### Pesos que se tocan en cada paso
 
