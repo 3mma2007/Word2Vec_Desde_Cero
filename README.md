@@ -92,7 +92,6 @@ W2 = 27 777 × 128 =  3 555 456 pesos
 Total              =  7 110 912 pesos
 ```
 
-Comprobación rápida: `256 × 27 777 = 7 110 912`.
 
 | Matriz | Forma | Pesos |
 |---|---|---|
