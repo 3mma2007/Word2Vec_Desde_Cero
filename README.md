@@ -11,8 +11,6 @@ Implementación de Word2Vec en **NumPy**, escrita desde cero. El modelo aprende 
 5. [Pipeline de datos](#pipeline-de-datos)
 6. [Hiperparámetros](#hiperparámetros)
 7. [Resultados](#resultados)
-8. [Cómo usarlo](#cómo-usarlo)
-9. [Limitaciones y mejoras posibles](#limitaciones-y-mejoras-posibles)
 
 ---
 
@@ -254,49 +252,3 @@ Un valor de 1 indica la misma dirección, 0 perpendiculares y -1 direcciones opu
 
 ---
 
-## Cómo usarlo
-
-El proyecto está en el notebook `Word2Vec_desde_Cero.ipynb` (pensado para Google Colab). Ejecuta las celdas en orden:
-
-1. Importar librerías.
-2. Definir `sigmoid` y la clase `Word2Vec`.
-3. Descargar text8 y construir el vocabulario.
-4. Generar pares positivos y negativos.
-5. Entrenar:
-
-```python
-model = Word2Vec(vocab_size=vocab_size, embedd_dim=128)
-historial = model.fit(centro, contexto, negative_skip_grams,
-                      epocas=8, ln=10, batch_size=1024)
-```
-
-6. Consultar vecinos:
-
-```python
-print(vecinos("king", model))
-```
-
-7. Exportar para el [Embedding Projector](https://projector.tensorflow.org): se generan `vectors.tsv` y `metadata.tsv` (filas alineadas, incluyendo `<UNK>` en la fila 0).
-
-> El vector de `<UNK>` no se entrena: se excluyó de los pares y de las negativas, así que conserva su inicialización aleatoria. En el Projector aparece como un punto sin significado.
-
-**Requisitos**: `numpy`, `tensorflow`, `matplotlib`. La generación de los 36.8 M de pares con Keras ocupa varios GB de RAM, por lo que conviene un entorno con memoria suficiente (por ejemplo, Colab).
-
----
-
-## Limitaciones y mejoras posibles
-
-- **Subsampling** de palabras muy frecuentes (`the`, `of`, `one`), que reduce pares repetitivos y suele mejorar los vecinos.
-- **Ruido de text8**: abreviaturas y restos de citas (`pmid`, `pg`, `gtb`) contaminan algunos vecinos.
-- **Más épocas o más corpus**: la loss seguía bajando al terminar la época 8, y text8 completo tiene 17 M de palabras.
-- **Negativas fijas**: se generaron una sola vez. Muestrearlas de nuevo en cada lote suele dar embeddings algo mejores a cambio de más cómputo.
-- **Rendimiento**: `np.add.at` es lento; para escalar más conviene una implementación vectorizada o en GPU.
-- **Evaluación**: aún no se probaron analogías (`man : king :: woman : ?`) ni se compara contra una referencia como `gensim`.
-
----
-
-## Referencias
-
-- Mikolov et al., *Efficient Estimation of Word Representations in Vector Space* (2013).
-- Mikolov et al., *Distributed Representations of Words and Phrases and their Compositionality* (2013).
-- Corpus text8: <http://mattmahoney.net/dc/textdata.html>
