@@ -21,7 +21,7 @@ Implementación de Word2Vec en **NumPy**, escrita desde cero. El modelo aprende 
 | Elemento | Valor |
 |---|---|
 | Modelo | Skip-gram con negative sampling |
-| Framework del modelo | NumPy (sin autograd) |
+| Framework del modelo | NumPy |
 | Corpus | text8, primeras 10 000 000 de palabras |
 | Vocabulario | 27 777 (27 776 palabras con al menos 15 apariciones + `<UNK>`) |
 | Dimensión del embedding | 128 |
