@@ -1,6 +1,6 @@
 # Word2Vec desde cero (Skip-gram con Negative Sampling)
 
-Implementación de Word2Vec en **NumPy**, escrita desde cero a partir de un MLP propio. El modelo aprende embeddings de palabras sobre el corpus **text8** (extracto de Wikipedia en inglés). TensorFlow se usa únicamente para generar los pares skip-gram y muestrear las palabras negativas; el forward, la loss, el backpropagation y la actualización de pesos están escritos a mano.
+Implementación de Word2Vec en **NumPy**, escrita desde cero. El modelo aprende embeddings de palabras sobre el corpus **text8** (extracto de Wikipedia en inglés). TensorFlow se usa únicamente para generar los pares skip-gram y muestrear las palabras negativas; el forward, la loss, el backpropagation y la actualización de pesos están escritos paso a paso.
 
 ## Contenido
 
