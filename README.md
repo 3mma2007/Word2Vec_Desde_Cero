@@ -124,7 +124,7 @@ Esta es la ventaja de negative sampling frente al softmax completo: con softmax 
 | `W1` | Uniforme en `[-límite, +límite]`, con `límite = sqrt(6 / (V + N))` (Xavier/Glorot) |
 | `W2` | Ceros |
 
-Con `W2 = 0`, todos los scores iniciales valen 0, `σ(0) = 0.5` y la loss inicial es `(1 + k) × ln 2 = 5 × 0.693 ≈ 3.47`. Si la primera loss de un entrenamiento no ronda ese valor, algo está mal.
+Con `W2 = 0`, todos los scores iniciales valen 0, `σ(0) = 0.5` y la loss inicial es `(1 + k ) × ln 2 (k = número de palabras negativas por cada par positivo) = 5 × 0.693 ≈ 3.47`. Si la primera loss de un entrenamiento no ronda ese valor, algo está mal.
 
 ---
 
